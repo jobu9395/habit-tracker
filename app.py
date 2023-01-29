@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 habits = ["Test habit", "Test habit 2", "Test Habit 3"]
