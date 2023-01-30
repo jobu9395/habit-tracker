@@ -11,4 +11,6 @@ MAIL_PORT=''
 RECIPIENT_EMAIL=''
 ```
 
-`test-email.py` is designed to test your email credentials.  Simply execute ```python test-email.py``` from root once your .env is filled out, and you should get an email in your `RECIPIENT_EMAIL` location.
+`email-scripts/test-smtplib.py` is designed to test your email credentials.  Simply execute ```python test-email.py``` from root once your .env is filled out, and you should get an email in your `RECIPIENT_EMAIL` location.
+
+`email-scripts/test-yagmail.py` allows for an easy custom email message.  This convention is adoped in the Flask app.
