@@ -1,25 +1,12 @@
-import os
-from flask import Flask, render_template, request
-from flask_mail import Mail, Message
 from dotenv import load_dotenv
+from flask import Flask, render_template, request
+import os
+import yagmail
 
 load_dotenv()
 
 app = Flask(__name__)
 habits = ["Test habit", "Test habit 2", "Test Habit 3"]
-
-# define globaal vars for senders and recipients
-SENDER = os.environ.get('ROOFHERO_USERNAME')
-RECIPIENTS = os.environ.get('RECIPIENT_EMAIL')
-
-# instanitate information needed to send an email with the form info
-app.config['MAIL_SERVER']=os.environ.get('MAIL_SERVER')
-app.config['MAIL_PORT'] = os.environ.get('MAIL_PORT')
-app.config['MAIL_USERNAME'] = SENDER
-app.config['MAIL_PASSWORD'] = os.environ.get('ROOFHERO_PW')
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
 
 
 @app.route("/")
@@ -37,14 +24,23 @@ def add_habit():
         # append the form information to the habits list (temporary data structure filling in for a db)
         habits.append(form_fill)
 
-        # send an email with the information using the imported "Message" object from Flask-mail
-        email_message = Message(
-            'New lead from RoofHero',
-            sender = SENDER,
-            recipients = [RECIPIENTS],
+        # send an email using yagmail -- first instantiate a yag object with credentials
+        yag = yagmail.SMTP(
+            os.environ.get('ROOFHERO_USERNAME'),
+            os.environ.get('ROOFHERO_PW'),
         )
-        email_message.body = form_fill
-        mail.send(email_message)
+
+        contents = [
+            "This is your first RoofHero Lead",
+            "Here's the contact info:",
+            form_fill,
+        ]
+
+        yag.send(
+            os.environ.get('RECIPIENT_EMAIL'),
+            'RoofHero Lead',
+            contents
+        )
 
 
     return render_template("add_habit.html", title="Habit Tracker - Add Habit")
