@@ -39,8 +39,8 @@ If using gmail, you need to generate an "app specific password".  To do this, go
 
 You need to set up 2fa, then generate an "app specific password".  Paste this password as the value to `EMAIL_PW` in your `.env.`.
 
-![image info](./images/snip 1.png)
-![image info](./images/snip 2.png)
+![image info](./images/snip-1.png)
+![image info](./images/snip-2.png)
 
 Check out this link for more detailed instructions: https://support.google.com/accounts/answer/185833?hl=en
 
