@@ -27,19 +27,19 @@ def add_habit():
 
         # send an email using yagmail -- first instantiate a yag object with credentials
         yag = yagmail.SMTP(
-            os.environ.get('ROOFHERO_USERNAME'),
-            os.environ.get('ROOFHERO_PW'),
+            os.environ.get('EMAIL_USERNAME'),
+            os.environ.get('EMAIL_PW'),
         )
 
         contents = [
-            "This is your first RoofHero Lead",
+            "This is your first Lead",
             "Here's the contact info:",
             form_fill,
         ]
 
         yag.send(
             to=json.loads(os.environ['RECIPIENT_EMAIL']),
-            subject='RoofHero Lead',
+            subject='Lead',
             contents=contents,
         )
 

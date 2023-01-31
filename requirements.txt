@@ -1,2 +1,4 @@
 flask
 python-dotenv
+yagmail
+python-dotenv

@@ -6,8 +6,8 @@ import json
 load_dotenv()
 
 yag = yagmail.SMTP(
-    os.environ.get('ROOFHERO_USERNAME'),
-    os.environ.get('ROOFHERO_PW'),
+    os.environ.get('EMAIL_USERNAME'),
+    os.environ.get('EMAIL_PW'),
 )
 
 contents = [
@@ -22,7 +22,6 @@ yag.send(
     subject='subject', 
     contents=contents
 )
-
 
 
 print("done")
