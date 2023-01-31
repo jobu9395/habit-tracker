@@ -38,9 +38,7 @@ Run ```python app.py``` to run app in debug mode locally
 If using gmail, you need to generate an "app specific password".  To do this, go to your google account, click the cog, click "account", then click "security" on the left panel.  
 
 You need to set up 2fa, then generate an "app specific password".  Paste this password as the value to `EMAIL_PW` in your `.env.`.
-
-![Image](images\snip 1.png)
-![Image](images\snip 2.png)
+Check out this link for more detailed instructions: https://support.google.com/accounts/answer/185833?hl=en
 
 `email-scripts/test-yagmail.py` allows for an easy custom email message IF USING GMAIL.  This convention is adoped in the Flask app.
 
