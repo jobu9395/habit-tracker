@@ -45,11 +45,16 @@ Check out this link for more detailed instructions: https://support.google.com/a
 
 `email-scripts/test-yagmail.py` allows for an easy custom email message IF USING GMAIL.  This convention is adoped in the Flask app.
 
-To test out this file, simply run: `python email-scripts/test-yagmail.py`.
+To test out this file, simply run: 
+```
+python email-scripts/test-yagmail.py
+```
 
 Note: yagmail is used in the base flask app auto-email functionality. If you're using a different email service provider, you'll need to update the code in `app.py`.
 
 `email-scripts/test-smtplib.py` is set up to send emails using Python's native `smtplib` library.  To test out this file, run: 
 
-`python email-scripts/test-smtplib.py`
+```
+python email-scripts/test-smtplib.py
+```
 
