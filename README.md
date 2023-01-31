@@ -1,4 +1,4 @@
-***Under development***
+***This app is under development.  It's useful for testing out automated emailing functionality in Python with Flask, smtplib, and yagmail.***
 
 This is a simple habit tracker flask app.  There is built in programmatic email functionality.  The app is set up to auto email the information filled out in the form.  If you want to test out emailing only, check otu the `email-scripts` sub directory and execute those files directly.
 
