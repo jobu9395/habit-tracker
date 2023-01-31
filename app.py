@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import os
 import yagmail
+import json
 
 load_dotenv()
 
@@ -16,8 +17,8 @@ def index():
 
 @app.route("/add", methods=["GET", "POST"])
 def add_habit():
-    if request.method == "POST":
-
+    
+    if request.method == "POST": 
         # store the request from the form in a variable
         form_fill = request.form.get("habit")
 
@@ -37,9 +38,9 @@ def add_habit():
         ]
 
         yag.send(
-            os.environ.get('RECIPIENT_EMAIL'),
-            'RoofHero Lead',
-            contents
+            to=json.loads(os.environ['RECIPIENT_EMAIL']),
+            subject='RoofHero Lead',
+            contents=contents,
         )
 
 
