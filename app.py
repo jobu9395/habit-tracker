@@ -7,7 +7,7 @@ import json
 load_dotenv()
 
 app = Flask(__name__)
-habits = ["Test habit", "Test habit 2", "Test Habit 3"]
+habits = ["Test form", "Test form 2", "Test form 3"]
 
 
 @app.route("/")
@@ -32,14 +32,13 @@ def add_habit():
         )
 
         contents = [
-            "This is your first Lead",
-            "Here's the contact info:",
+            "Here's the information that was entered in the form",
             form_fill,
         ]
 
         yag.send(
             to=json.loads(os.environ['RECIPIENT_EMAIL']),
-            subject='Lead',
+            subject='Form Submission',
             contents=contents,
         )
 

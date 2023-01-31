@@ -2,6 +2,8 @@
 
 This is a simple habit tracker flask app.  There is built in programmatic email functionality.  The app is set up to auto email the information filled out in the form.  If you want to test out emailing only, check otu the `email-scripts` sub directory and execute those files directly.
 
+The app is called "habit tracker", but it can be used for emailing yourself or others quick reminders.  It uses a temporary list to store new entries while the app is in session.  Feel free to modify the code to connect it to a database.
+
 For the email functionality, it's easiest to use gmail, but possible to use other email service providers.
 
 ***Set up***
@@ -32,6 +34,14 @@ Run ```python app.py``` to run app in debug mode locally
 `MAIL_PORT` may need to be changed if not using gmail.
 `RECIPIENT_EMAIL` is a list of emails.
 
+***NOTE***
+If using gmail, you need to generate an "app specific password".  To do this, go to your google account, click the cog, click "account", then click "security" on the left panel.  
+
+You need to set up 2fa, then generate an "app specific password".  Paste this password as the value to `EMAIL_PW` in your `.env.`.
+
+![Image](images\snip 1.png)
+![Image](images\snip 2.png)
+
 `email-scripts/test-yagmail.py` allows for an easy custom email message IF USING GMAIL.  This convention is adoped in the Flask app.
 
 To test out this file, simply run: `python email-scripts/test-yagmail.py`.
@@ -41,6 +51,4 @@ Note: yagmail is used in the base flask app auto-email functionality. If you're 
 `email-scripts/test-smtplib.py` is set up to send emails using Python's native `smtplib` library.  To test out this file, run: 
 
 `python email-scripts/test-smtplib.py`
-
-If using gmail, you need to generate an "app specific password".  
 
