@@ -32,7 +32,7 @@ Run ```python app.py``` to run app in debug mode locally
 `EMAIL_PW` is the password for the email you're sending from.
 `MAIL_SERVER` may need to be changed if not using gmail.
 `MAIL_PORT` may need to be changed if not using gmail.
-`RECIPIENT_EMAIL` is a list of emails.
+`RECIPIENT_EMAIL` is a list of emails.  IT NEEDS TO FOLLOW THIS EXACT CONVENTION (quotation types matter): `'["xyz123@gmail.com", "abc789@gmail.com"]'`
 
 ***NOTE***
 If using gmail, you need to generate an "app specific password".  To do this, go to your google account, click the cog, click "account", then click "security" on the left panel.  
